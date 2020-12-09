@@ -10,10 +10,6 @@ CREATE TABLE `shops` (
 );
 
 INSERT INTO `shops` (store, item, price) VALUES
-	('TwentyFourSeven','bread',30),
-	('TwentyFourSeven','water',15),
-	('RobsLiquor','bread',30),
-	('RobsLiquor','water',15),
-	('LTDgasoline','bread',30),
-	('LTDgasoline','water',15)
+	('Dominos','pizza',30),
+	('Dominos','water',5),
 ;
