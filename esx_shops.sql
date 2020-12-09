@@ -1,6 +1,6 @@
 USE `es_extended`;
 
-CREATE TABLE `shops` (
+CREATE TABLE `dominoshop` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`store` varchar(100) NOT NULL,
 	`item` varchar(100) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE `shops` (
 	PRIMARY KEY (`id`)
 );
 
-INSERT INTO `shops` (store, item, price) VALUES
+INSERT INTO `dominoshop` (store, item, price) VALUES
 	('Dominos','pizza',30),
 	('Dominos','water',5),
 ;

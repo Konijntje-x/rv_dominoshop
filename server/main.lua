@@ -4,7 +4,7 @@ local ShopItems = {}
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 MySQL.ready(function()
-	MySQL.Async.fetchAll('SELECT * FROM shops LEFT JOIN items ON items.name = shops.item', {}, function(shopResult)
+	MySQL.Async.fetchAll('SELECT * FROM dominoshop LEFT JOIN items ON items.name = shops.item', {}, function(shopResult)
 		for i=1, #shopResult, 1 do
 			if shopResult[i].name then
 				if ShopItems[shopResult[i].store] == nil then
@@ -17,18 +17,18 @@ MySQL.ready(function()
 					price = shopResult[i].price,
 				})
 			else
-				print(('esx_shops: invalid item "%s" found!'):format(shopResult[i].item))
+				print(('rv_dominoshop: ongeldig item "%s" gevonden!'):format(shopResult[i].item))
 			end
 		end
 	end)
 end)
 
-ESX.RegisterServerCallback('esx_shops:requestDBItems', function(source, cb)
+ESX.RegisterServerCallback('rv_dominoshop:requestDBItems', function(source, cb)
 	cb(ShopItems)
 end)
 
-RegisterServerEvent('esx_shops:buyItem')
-AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
+RegisterServerEvent('rv_dominoshop:buyItem')
+AddEventHandler('rv_dominoshop:buyItem', function(itemName, amount, zone)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
 
@@ -36,7 +36,7 @@ AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 
 	-- is the player trying to exploit?
 	if amount < 0 then
-		print('esx_shops: ' .. xPlayer.identifier .. ' attempted to exploit the shop!')
+		print('rv_dominoshop: ' .. xPlayer.identifier .. ' attempted to exploit the shop!')
 		return
 	end
 

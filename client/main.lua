@@ -10,7 +10,7 @@ Citizen.CreateThread(function()
 
 	Citizen.Wait(5000)
 
-	ESX.TriggerServerCallback('esx_shops:requestDBItems', function(ShopItems)
+	ESX.TriggerServerCallback('rv_dominoshop:requestDBItems', function(ShopItems)
 		for k,v in pairs(ShopItems) do
 			Config.Zones[k].Items = v
 		end
@@ -51,7 +51,7 @@ function OpenShopMenu(zone)
 				{label = _U('yes'), value = 'yes'}
 		}}, function(data2, menu2)
 			if data2.current.value == 'yes' then
-				TriggerServerEvent('esx_shops:buyItem', data.current.item, data.current.value, zone)
+				TriggerServerEvent('rv_dominoshop:buyItem', data.current.item, data.current.value, zone)
 			end
 
 			menu2.close()
@@ -67,13 +67,13 @@ function OpenShopMenu(zone)
 	end)
 end
 
-AddEventHandler('esx_shops:hasEnteredMarker', function(zone)
+AddEventHandler('rv_dominoshop:hasEnteredMarker', function(zone)
 	currentAction     = 'shop_menu'
 	currentActionMsg  = _U('press_menu')
 	currentActionData = {zone = zone}
 end)
 
-AddEventHandler('esx_shops:hasExitedMarker', function(zone)
+AddEventHandler('rv_dominoshop:hasExitedMarker', function(zone)
 	currentAction = nil
 	ESX.UI.Menu.CloseAll()
 end)
@@ -122,12 +122,12 @@ Citizen.CreateThread(function()
 
 		if isInMarker and not hasAlreadyEnteredMarker then
 			hasAlreadyEnteredMarker = true
-			TriggerEvent('esx_shops:hasEnteredMarker', currentZone)
+			TriggerEvent('rv_dominoshop:hasEnteredMarker', currentZone)
 		end
 
 		if not isInMarker and hasAlreadyEnteredMarker then
 			hasAlreadyEnteredMarker = false
-			TriggerEvent('esx_shops:hasExitedMarker', lastZone)
+			TriggerEvent('rv_dominoshop:hasExitedMarker', lastZone)
 		end
 
 		if letSleep then
