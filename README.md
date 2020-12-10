@@ -1,5 +1,8 @@
 Voor de stijl xD
 
+Only useable in your private or public server with permission!
+You are NOT allowed to download and use this. 
+
 # rv_dominoshop
 
 ## Download & Installation
