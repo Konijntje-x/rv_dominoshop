@@ -5,6 +5,7 @@ You are NOT allowed to download and use this.
 
 # rv_dominoshop
 
+The dutch translation stands in en.lua
 ## Download & Installation
 
 ### Using Git
