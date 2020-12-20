@@ -26,3 +26,4 @@ git clone https://github.com/Konijntje-x/rv_dominoshop [Konijntje-x]/rv_dominosh
 start rv_dominoshop or however you named it.
 ```
 
+**IMPORTANT: Check if the items that will be added to dominoshop are registered in mysql table items! **
