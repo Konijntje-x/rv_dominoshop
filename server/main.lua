@@ -4,7 +4,7 @@ local ShopItems = {}
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 MySQL.ready(function()
-	MySQL.Async.fetchAll('SELECT * FROM dominoshop LEFT JOIN items ON items.name = shops.item', {}, function(shopResult)
+	MySQL.Async.fetchAll('SELECT * FROM dominoshop LEFT JOIN items ON items.name = dominoshop.item', {}, function(shopResult)
 		for i=1, #shopResult, 1 do
 			if shopResult[i].name then
 				if ShopItems[shopResult[i].store] == nil then
