@@ -12,4 +12,5 @@ CREATE TABLE `dominoshop` (
 INSERT INTO `dominoshop` (store, item, price) VALUES
 	('Dominos','pizza',30),
 	('Dominos','water',5),
+
 ;
